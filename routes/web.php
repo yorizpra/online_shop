@@ -19,9 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', \App\Http\Livewire\Home::class);
+Route::get('/TambahProduk', \App\Http\Livewire\TambahProduk::class);
+Route::get('/BelanjaUser', \App\Http\Livewire\BelanjaUser::class);
+Route::get('/TambahOngkir/{id}', \App\Http\Livewire\TambahOngkir::class);
