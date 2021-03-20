@@ -16,10 +16,11 @@ class CreateBelanjasTable extends Migration
         Schema::create('belanjas', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('produk_id');
+            $table->bigInteger('produk_id')->unsigned();
             $table->integer('total_harga');
             $table->integer('status');
             $table->timestamps();
+            $table->foreign('produk_id')->references('id')->on('produks')->onDelete('cascade');
         });
     }
 

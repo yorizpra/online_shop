@@ -51,4 +51,33 @@
             </div>
         </div>
     </div>
+
+    @if($result)
+        <section class="products mb-5">
+            <div class="row mt-4">
+                    @forelse($result as $r)
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <div><h5>{{$nama_jasa}}</h5></div>
+                                        <div class="row mt-2">
+                                            <div class="col mt-12">
+                                                <h5><strong>{{ $r['biaya'] }}</strong></h5>
+                                                <h5><strong>{{ $r['etd'] }}</strong></h5>
+                                                <h5><strong>{{ $r['description'] }}</strong></h5>
+                                            </div>
+                                        </div>
+                                    <div class="row mt-2">
+                                        <button class="btn btn-success btn-block" wire:click="save_ongkir({{ $r['biaya'] }})">
+                                            Tambah Sebagai Ongkir
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+            </div>
+        </section>
+    @endif
+
 </div>
