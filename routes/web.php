@@ -23,3 +23,4 @@ Route::get('/', \App\Http\Livewire\Home::class);
 Route::get('/TambahProduk', \App\Http\Livewire\TambahProduk::class);
 Route::get('/BelanjaUser', \App\Http\Livewire\BelanjaUser::class);
 Route::get('/TambahOngkir/{id}', \App\Http\Livewire\TambahOngkir::class);
+Route::get('/Bayar/{id}', \App\Http\Livewire\Bayar::class);
