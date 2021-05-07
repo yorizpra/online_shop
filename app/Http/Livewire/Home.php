@@ -60,6 +60,6 @@ class Home extends Component
             ->where('Harga','<=',$harga_max)
             ->get();
         }
-        return view('livewire.home')->extends('layouts.app')->section('content');
+        return view('livewire.home')->extends('layouts.pembeli')->section('content');
     }
 }

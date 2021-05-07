@@ -14,12 +14,12 @@ class adminseeder extends Seeder
     public function run()
     {
         \App\Models\Admin::create([
-            'nama' => 'admin',
+            'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('admin123')
         ]);
         \App\Models\Admin::create([
-            'nama' => 'admin',
+            'name' => 'admin',
             'email' => 'sasa@gmail.com',
             'password' => bcrypt('sasa123')
         ]);

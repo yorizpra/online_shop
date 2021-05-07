@@ -235,50 +235,50 @@
 				
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Features Items</h2>
-                            <div class="features_items"><!--features_items-->
-							@if(Auth::user())
-							@if(Auth::user()->level == 1)
-							<div class="col-md-3">
-								<a href="{{ url('TambahProduk/') }}" class="btn btn-success btn-block">Tambah Produk</a>
-							</div>
-							@endif
-							@endif
-							<div class="col-sm-3">
-								<div class="search_box pull-right">
-									<input wire:model="search" type="text" placeholder="Search"/>
-								</div>
-							</div>
-                            </div><br>
-						@foreach($products as $product)
-                        <div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img src="{{ asset('storage/photos/'.$product->gambar) }}" alt="">
-											<h2>Rp. {{ number_format($product->harga) }}</h2>
-											<p>{{ $product->nama }}</p>
-											<!-- <button class="btn btn-default add-to-cart" wire:click="beli({{ $product->id }})"><i class="fa fa-shopping-cart"></i>Add to cart</button> -->
-										</div>
-										<div class="product-overlay">
-											<div class="overlay-content">
-												<h2>Rp. {{ number_format($product->harga) }}</h2>
-												<p>{{ $product->nama }}</p>
-												<a class="btn btn-default add-to-cart" href="product-details.html"><i class="fa fa-eye"></i>View</a>
-												<button class="btn btn-default add-to-cart" wire:click="beli({{ $product->id }})"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-						@endforeach
+						<h2 class="title text-center">Tambah Data Produk</h2>
+                            <section id="form"><!--form-->
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        
+                                        <div class="col-md-9">
+                                            <center><div class="signup-form"><!--sign up form-->
+                                                <form wire:submit.prevent="store">
+                                                    <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" wire:model="nama" value="{{ old('nama') }}" required autocomplete="nama" autofocus placeholder="Nama Produk"/>
+                                                        @error('nama')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    
+                                                    <input id="harga" type="number" class="form-control @error('harga') is-invalid @enderror" wire:model="harga" value="{{ old('harga') }}" required autocomplete="harga" autofocus placeholder="Harga Produk"/>
+                                                        @error('harga')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+
+                                                    <input id="berat" type="number" class="form-control @error('berat') is-invalid @enderror" wire:model="berat" value="{{ old('berat') }}" required autocomplete="berat" autofocus placeholder="Berat Produk (Gram)"/>
+                                                        @error('berat')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+
+                                                    <br>
+
+                                                    <label for="gambar" class="col-md-12 col-form-label text-md-left">{{ ('Gambar Produk (*maks 2 MB)') }}</label>
+                                                    <input id="" type="file" wire:model="gambar">
+                                                        @error('gambar')
+                                                            <span class="error">{{ $message }}</span>
+                                                        @enderror
+
+                                                    <br><button type="submit" class="btn btn-default">Tambah Produk</button>
+                                                </form>
+                                            </div></center><!--/sign up form-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </section><!--/form-->
 						
 					</div><!--features_items-->
 					
