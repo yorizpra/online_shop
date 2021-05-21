@@ -61,6 +61,6 @@ class TambahProduk extends Component
 
     public function render()
     {
-        return view('livewire.tambah-produk')->extends('layouts.app')->section('content');
+        return view('livewire.tambah-produk-test')->extends('layouts.pembeli')->section('content');
     }
 }

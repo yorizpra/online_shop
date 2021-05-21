@@ -27,6 +27,6 @@ class BelanjaUser extends Component
         if (Auth::user()) {
             $this->belanja = Belanja::where('user_id', Auth::user()->id)->get();
         }
-        return view('livewire.belanja-user')->extends('layouts.app')->section('content');
+        return view('livewire.belanja-user-test')->extends('layouts.pembeli')->section('content');
     }
 }
